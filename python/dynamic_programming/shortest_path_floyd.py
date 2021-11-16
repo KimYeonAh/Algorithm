@@ -21,7 +21,6 @@ def printD(D) :
             else : print("%4d "%D[i][j], end = '')
         print("")
 
-
 INF = 9999
 vertex =    [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
 weight = [  [   0,   7, INF, INF,   3,  10, INF ],
