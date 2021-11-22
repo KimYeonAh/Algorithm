@@ -61,4 +61,17 @@ end = endTime(reservation)
 meet = meetingTime(reservation)
 
 maxLen = max(len(start), len(end), len(meet))
-print(maxLen)
+
+maxMeet = []
+
+if len(start) == maxLen : maxMeet.append("시작시간 기준")
+if len(end) == maxLen : maxMeet.append("종료시간 기준")
+if len(meet) == maxLen : maxMeet.append("회의진행시간 기준")
+
+print("가장 많은 회의를 진행할 수 있는 스케줄 : ", end='')
+
+for i in range(len(maxMeet)) :
+    if i != len(maxMeet)-1 :
+        print(maxMeet[i], end=', ')
+    else :
+        print(maxMeet[i])
