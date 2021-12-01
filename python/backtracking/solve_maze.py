@@ -16,6 +16,25 @@ def solve_maze( maze, x, y ) :
     else :
         for i in sol : print(i)
 
+def DFS_maze(maze, x, y, sol, mark) :
+    W, H = len(maze[0]), len(maze)
+
+    if not isSafe(maze, x, y, mark) :
+        return False
+
+    mark[y][x] = 1
+    sol[y][x] = 1
+    if maze[y][x] == 2 :
+        return True
+
+    if DFS_maze(maze, x+1, y, sol, mark) == True : return True
+    if DFS_maze(maze, x, y+1, sol, mark) == True : return True
+    if DFS_maze(maze, x-1, y, sol, mark) == True : return True
+    if DFS_maze(maze, x, y-1, sol, mark) == True : return True
+
+    sol[y][x] = 0
+    return False
+
 maze = [[0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
         [0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0],
         [0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0],
