@@ -13,7 +13,7 @@ def solve_N_Queen(board, y) :
     N = len(board)
 
     if y == N :
-        print(board)
+        printBoard(board)
         return
 
     for x in range(N):
@@ -21,6 +21,16 @@ def solve_N_Queen(board, y) :
             board[y][x] = 1
             solve_N_Queen(board, y+1)
             board[y][x] = 0
+
+def printBoard(board) :
+    for i in range(len(board)):
+        for j in range(len(board)):
+            if board[i][j] == 1 :
+                print("Q", end = " ")
+            else :
+                print(".", end= " ")
+        print()
+    print()
 
 N = 4
 board = [[0 for i in range(N)] for j in range(N)]
