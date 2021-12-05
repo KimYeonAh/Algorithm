@@ -5,7 +5,18 @@ def isSafe(g, v, c, color) :
 
     return True
 
-# def DFS_graph_coloring(graph, k, v, color) :
+def DFS_graph_coloring(graph, k, v, color) :
+    if v == len(graph) :
+        return True
+
+    for c in range(1, k+1) :
+        if isSafe(graph, v, c, color) :
+            color[v] = c
+            if DFS_graph_coloring(graph, k, v+1, color) :
+                return True
+            color[v] = 0
+
+    return False
 
 def graphColoring(graph, k, states) :
     color = [0] * len(graph)
